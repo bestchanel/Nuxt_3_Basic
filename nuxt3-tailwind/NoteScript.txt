@@ -1,0 +1,96 @@
++++++++++++++++++++++++++++++++++
+| Day 2
+| Nuxt3 Tailwind CSS
++++++++++++++++++++++++++++++++++
+Step 1: สร้างโปรเจ็กต์ใหม่ด้วย Nuxt 3
+---
+npx nuxi init nuxt3-tailwind
+
+Step 2: เปิดเข้า VSCode
+---
+code nuxt3-tailwind -r
+
+Step 3: ติดตั้ง Dependencies (node_module)
+---
+npm install
+
+Step 4: ทดสอบรันโปรเจ็กต์ dev mode
+---
+npm run dev
+
+Step 5: ติดตั้ง Tailwind CSS
+---
+npm install -D tailwindcss postcss autoprefixer
+
+Step 6: สร้างไฟล์ tailwind config
+---
+npx tailwindcss init
+
+Step 7: Add Tailwind to your PostCSS configuration
+---
+postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+
+Step 8: Configure your template paths
+---
+mode: 'jit',
+content: [
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./nuxt.config.{js,ts}",
+    "./app.vue",
+  ],
+
+Step 9: Add the Tailwind directives to your CSS
+---
+สร้างไฟล์ main.css ไว้ในโฟลเดอร์ ./assets/css/main.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Step 10: Add the CSS file globally
+---
+css: ['~/assets/css/main.css'],
+
+
+Step 11: ติดตั้ง @nuxtjs/robots
+---
+npm install @nuxtjs/robots -D
+
+Step 12: ติดตั้ง Modules Nuxt-icon
+---
+npm install --save-dev nuxt-icon
+
+Step 13: การสร้าง Components
+---
+npx nuxi add component App/Header
+npx nuxi add component App/Footer
+
+Step 14: การสร้าง Layouts
+---
+npx nuxi add layout default
+
+Step 15: การสร้าง Pages
+---
+npx nuxi add page index
+
+Step 16: เรียกใช้ Layout ที่ไฟล์ app.vue
+---
+<template>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
+</template>
+
+Step 17: สร้าง page / store , blog, contact
+---
+npx nuxi add page store
+npx nuxi add page blog
+npx nuxi add page contact
